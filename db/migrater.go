@@ -4,13 +4,12 @@ import (
 	"database/sql"
 	baseerrors "errors"
 	"fmt"
-	"log"
-	"path/filepath"
-
 	"github.com/golang-migrate/migrate/v4"
 	"github.com/golang-migrate/migrate/v4/database/postgres"
 	"github.com/hbttundar/diabuddy-api-config/config/dbconfig"
 	"github.com/hbttundar/diabuddy-api-config/util/resolver/rootpath"
+	"log"
+	"path/filepath"
 )
 
 // RunMigrations applies all up migrations.

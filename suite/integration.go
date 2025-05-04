@@ -2,13 +2,11 @@ package suite
 
 import (
 	"database/sql"
-	db2 "github.com/hbttundar/diabuddy_testkit/db"
+	"github.com/hbttundar/diabuddy-api-infra/database"
+	db "github.com/hbttundar/diabuddy_testkit/db"
+	"github.com/stretchr/testify/require"
 	_ "os"
 	"testing"
-
-	"github.com/stretchr/testify/require"
-
-	"github.com/hbttundar/diabuddy-api-infra/database"
 )
 
 // IntegrationSuite provides a reusable base for DB-integrated test suites.
@@ -23,11 +21,11 @@ func NewIntegrationSuite(t *testing.T) *IntegrationSuite {
 		BaseSuite: NewBaseSuite(t),
 	}
 
-	conn, cfg, err := db2.InitializeTestDB(s.Ctx)
+	conn, cfg, err := db.InitializeTestDB(s.Ctx)
 	require.NoError(t, err)
 	s.DB = conn
 
-	require.NoError(t, db2.RunMigrations(cfg))
+	require.NoError(t, db.RunMigrations(cfg))
 
 	tx, err := conn.DB().Begin()
 	require.NoError(t, err)

@@ -3,8 +3,8 @@ package suite
 import (
 	"testing"
 
-	"github.com/gin-gonic/gin"
-	infrahttp "github.com/hbttundar/diabuddy-api-infra/http"
+	infrahttp "github.com/hbttundar/diabuddy-api-infra/http/request"
+	"github.com/hbttundar/diabuddy-api-infra/http/router"
 	"github.com/stretchr/testify/require"
 	"net/http"
 )
@@ -12,16 +12,16 @@ import (
 // BrowserSuite extends IntegrationSuite with a test HTTP router and client.
 type BrowserSuite struct {
 	*IntegrationSuite
-	Router *gin.Engine
+	Router *router.Router
 	Client *http.Client
 }
 
-func NewBrowserSuite(t *testing.T, setupRoutes func(r *gin.Engine)) *BrowserSuite {
+func NewBrowserSuite(t *testing.T, buildRouter func() *router.Router) *BrowserSuite {
 	s := &BrowserSuite{
 		IntegrationSuite: NewIntegrationSuite(t),
 	}
 
-	s.Router = infrahttp.SetupRouter(setupRoutes)
+	s.Router = buildRouter()
 	s.Client = infrahttp.DefaultHTTPClient()
 
 	require.NotNil(t, s.Router)
