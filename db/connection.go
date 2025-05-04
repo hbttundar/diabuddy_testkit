@@ -2,7 +2,6 @@ package db
 
 import (
 	"context"
-
 	"github.com/hbttundar/diabuddy-api-config/config/dbconfig"
 	"github.com/hbttundar/diabuddy-api-config/config/envmanager"
 	"github.com/hbttundar/diabuddy-api-infra/database"
@@ -23,8 +22,8 @@ func InitializeTestDB(ctx context.Context) (database.Connection, *dbconfig.DBCon
 	if err != nil {
 		return nil, nil, err
 	}
-	if err := conn.Open(ctx); err != nil {
-		return nil, nil, err
+	if cnnErr := conn.Open(ctx); cnnErr != nil {
+		return nil, nil, cnnErr
 	}
 
 	return conn, cfg, nil
