@@ -16,3 +16,9 @@ func NewBaseSuite(t *testing.T) *BaseSuite {
 		Ctx: context.Background(),
 	}
 }
+
+func WithBaseTestSuite(t *testing.T, fn func(s *IntegrationSuite)) {
+	s := NewIntegrationSuite(t)
+	defer s.Cleanup()
+	fn(s)
+}

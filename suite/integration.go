@@ -37,3 +37,9 @@ func NewIntegrationSuite(t *testing.T) *IntegrationSuite {
 func (s *IntegrationSuite) Cleanup() {
 	_ = s.Tx.Rollback()
 }
+
+func WithIntegrationTestSuite(t *testing.T, fn func(s *IntegrationSuite)) {
+	s := NewIntegrationSuite(t)
+	defer s.Cleanup()
+	fn(s)
+}
