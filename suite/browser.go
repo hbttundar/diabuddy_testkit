@@ -33,3 +33,9 @@ func NewBrowserSuite(t *testing.T, buildRouter func() *router.Router) *BrowserSu
 func (s *BrowserSuite) Cleanup() {
 	s.IntegrationSuite.Cleanup()
 }
+
+func WithBrowserTestSuite(t *testing.T, buildRouter func() *router.Router, fn func(suite *BrowserSuite)) {
+	s := NewBrowserSuite(t, buildRouter)
+	defer s.Cleanup()
+	fn(s)
+}
