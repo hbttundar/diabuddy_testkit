@@ -1,6 +1,6 @@
 module github.com/hbttundar/diabuddy_testkit
 
-go 1.24.2
+go 1.24.3
 
 require (
 	github.com/golang-migrate/migrate/v4 v4.18.3
