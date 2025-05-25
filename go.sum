@@ -67,8 +67,8 @@ github.com/hashicorp/go-multierror v1.1.1 h1:H5DkEtf6CXdFp0N0Em5UCwQpXMWke8IA0+l
 github.com/hashicorp/go-multierror v1.1.1/go.mod h1:iw975J/qwKPdAO1clOe2L8331t/9/fmwbPZ6JB6eMoM=
 github.com/hbttundar/diabuddy-api-config v0.2.1 h1:1+ADtEmkgCoAJ4tXmorXV4JLFroqSKnXdws6vb8s/N4=
 github.com/hbttundar/diabuddy-api-config v0.2.1/go.mod h1:X/lnY/7pO7eB6nzY2h0+QTBpOFfOTS9OKHudRatpfQg=
-github.com/hbttundar/diabuddy-api-infra v0.1.1 h1:B1y+6UJMIbVX0mMDVpyqrjoMsYLgMa+DqEuP3UZk1kc=
-github.com/hbttundar/diabuddy-api-infra v0.1.1/go.mod h1:gxrBbxm0WfKzNNWKHDnGGKqcgOG0YxYlmLbcq4suwG0=
+github.com/hbttundar/diabuddy-api-infra v0.1.3 h1:n0q1H/fBLmHRDXFBT+wy4yLzf3iyXHhBastFYnJc7mU=
+github.com/hbttundar/diabuddy-api-infra v0.1.3/go.mod h1:9mVw2FNzwQC/wknTmde/OLHD5S+PFrDBevDU7lVjDC8=
 github.com/hbttundar/diabuddy-errors v0.0.1 h1:iOSFEjCXSXfruwI2tThHx9kjLnKYsO/8t/FC3saQjIs=
 github.com/hbttundar/diabuddy-errors v0.0.1/go.mod h1:jr7vdKmSGN2BeaO0b+utQRgyhMEoTv+Paq7/mXuOWAE=
 github.com/joho/godotenv v1.5.1 h1:7eLL/+HRGLY0ldzfGMeQkb7vMd0as4CfYvUVzLqw0N0=

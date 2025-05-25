@@ -5,7 +5,7 @@ go 1.24.3
 require (
 	github.com/golang-migrate/migrate/v4 v4.18.3
 	github.com/hbttundar/diabuddy-api-config v0.2.1
-	github.com/hbttundar/diabuddy-api-infra v0.1.1
+	github.com/hbttundar/diabuddy-api-infra v0.1.3
 	github.com/stretchr/testify v1.10.0
 )
 
