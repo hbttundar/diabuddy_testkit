@@ -1,12 +1,11 @@
 package suite
 
 import (
-	"net/http/httptest"
-	"testing"
-
 	"github.com/hbttundar/diabuddy-api-infra/http/router"
 	"github.com/stretchr/testify/require"
 	"net/http"
+	"net/http/httptest"
+	"testing"
 )
 
 // BrowserSuite extends IntegrationSuite with a test HTTP router and client.
@@ -18,18 +17,18 @@ type BrowserSuite struct {
 }
 
 func NewBrowserSuite(t *testing.T, buildRouter func(bs *BrowserSuite) *router.Router) *BrowserSuite {
-	s := NewIntegrationSuite(t)
-	bs := &BrowserSuite{IntegrationSuite: s}
+	is := NewIntegrationSuite(t)
 
-	r := buildRouter(bs)
-	require.NotNil(t, r, "buildRouter must return a non-nil *router.Router")
+	bs := &BrowserSuite{IntegrationSuite: is}
 
-	handler, ok := r.Adapter().(http.Handler)
-	require.True(t, ok, "router.Adapter() must implement http.Handler")
-	server := httptest.NewServer(handler)
-	bs.Router = r
-	bs.Server = server
-	bs.Client = server.Client()
+	testRouter := buildRouter(bs)
+	require.NotNil(t, testRouter, "buildRouter must return a non-nil *router.Router")
+
+	bs.Router = testRouter
+	bs.Server = httptest.NewServer(testRouter)
+	bs.Client = bs.Server.Client()
+	require.NotNil(t, bs.Server, "Server should never be nil")
+	require.NotNil(t, bs.Client, "Client should never be nil")
 
 	return bs
 }
